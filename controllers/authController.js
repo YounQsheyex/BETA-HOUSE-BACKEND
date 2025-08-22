@@ -56,7 +56,7 @@ const userLogin = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json({ message: `Email Address not Found Plase Register` });
+        .json({ message: `Email Address not Found Please Register` });
     }
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
