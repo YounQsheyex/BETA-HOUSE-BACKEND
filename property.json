@@ -198,5 +198,15 @@
     "price": "3,500,000/1 Year",
     "tag": "For Rent",
     "feature": "Featured"
+  },
+  {
+    "title": "Real House Luxury Villa",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDsUvWRV50I222CFFc91rxivNwhbZlXQiqRQ&s",
+    "location": "Ikeja, Lagos",
+    "bedrooms": "6 Bedrooms",
+    "bathroom": "6 Bathrooms",
+    "price": "600,000,000",
+    "tag": "For Sale",
+    "feature": "Featured"
   }
 ]
