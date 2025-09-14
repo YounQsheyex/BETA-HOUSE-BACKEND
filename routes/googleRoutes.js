@@ -12,7 +12,7 @@ router.get(
 router.get(
   "/google/signup/callback",
   passport.authenticate("google-signup", {
-    failureRedirect: "/signup-failed",
+    failureRedirect: `${process.env.FRONTEND_URL}/sign-in`,
     session: false,
   }),
   (req, res) => {
