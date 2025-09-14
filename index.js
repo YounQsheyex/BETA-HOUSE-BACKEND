@@ -13,6 +13,7 @@ const googleRoutes = require("./routes/googleRoutes");
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(passport.initialize());
 
 app.get("/", (req, res) => {
   res.status(200).json({ success: true, message: "BETAHOUSE SERVER" });
