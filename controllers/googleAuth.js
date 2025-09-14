@@ -32,7 +32,7 @@ passport.use(
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
           email,
-          password: null,
+          password: "google-oauth",
           verificationToken,
           verificationTokenExpires,
           provider: "google",

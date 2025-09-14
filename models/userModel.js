@@ -20,12 +20,20 @@ const registerUser = new Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is Required"],
+      required: function () {
+        // password required only if provider is not google
+        return this.provider !== "google";
+      },
       minlength: [6, "Password must be at least 6 characters"],
+    },
+    provider: {
+      type: String,
+      enum: ["local", "google"],
+      default: "local",
     },
     isVerified: {
       type: Boolean,
-      default:false
+      default: false,
     },
     verificationToken: String,
     verificationTokenExpires: Date,
