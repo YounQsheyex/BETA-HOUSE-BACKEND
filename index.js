@@ -6,6 +6,9 @@ const PORT = process.env.PORT || 6800;
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const propertyRoute = require("./routes/propertyRoute");
+const passport = require("passport");
+require("./controllers/googleAuth");
+const googleRoutes = require("./routes/googleRoutes");
 
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
@@ -17,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/property", propertyRoute);
+app.use("/auth", googleRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: "ROUTE NOT FOUND" });
