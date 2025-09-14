@@ -23,6 +23,12 @@ const registerUser = new Schema(
       required: [true, "Password is Required"],
       minlength: [6, "Password must be at least 6 characters"],
     },
+    isVerified: {
+      type: Boolean,
+      default:false
+    },
+    verificationToken: String,
+    verificationTokenExpires: Date,
   },
   { timestamps: true }
 );
