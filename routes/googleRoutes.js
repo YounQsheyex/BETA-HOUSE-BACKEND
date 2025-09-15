@@ -34,7 +34,7 @@ router.get(
 router.get(
   "/google/login/callback",
   passport.authenticate("google-login", {
-    failureRedirect: "/sign-up",
+    failureRedirect: `${process.env.FRONTEND_URL}/sign-up`,
     session: false,
   }),
 
