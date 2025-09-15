@@ -50,10 +50,9 @@ router.get(
     );
     // Redirect to frontend after successful login
     res.redirect(
-      `${
-        process.env.FRONTEND_URL
-      }/home?token=${token}&user=${encodeURIComponent(
+      `${process.env.FRONTEND_URL}/home?&user=${encodeURIComponent(
         JSON.stringify({
+          token,
           email: user.email,
           userId: user._id,
         })
