@@ -39,7 +39,10 @@ router.get(
   }),
 
   (req, res) => {
-    const user = req.params;
+    const user = req.user;
+    if (!user) {
+      return res.redirect(`${process.env.FRONTEND_URL}/sign-up`);
+    }
     const token = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET,
@@ -49,7 +52,14 @@ router.get(
     res.redirect(
       `${
         process.env.FRONTEND_URL
-      }/home?token=${token}&user=${encodeURIComponent(JSON.stringify(user))}`
+      }/home?token=${token}&user=${encodeURIComponent(
+        JSON.stringify({
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          userId: user._id,
+        })
+      )}`
     );
   }
 );
