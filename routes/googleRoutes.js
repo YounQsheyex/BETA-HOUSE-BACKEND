@@ -49,21 +49,18 @@ router.get(
       { expiresIn: "1h" }
     );
     // Redirect to frontend after successful login
-    res.status(200).json({
-      success: true,
-      message: "Successful",
-      user: {
-        token,
-        userId: user._id,
-        email: user.email,
-      },
-    });
+    res
+      .status(200)
+      .redirect(`${process.env.FRONTEND_URL}/home`)
+      .json({
+        success: true,
+        message: "Successful",
+        user: {
+          token,
+          userId: user._id,
+          email: user.email,
+        },
+      });
   }
 );
 module.exports = router;
-
-// .redirect(
-//       `${
-//         process.env.FRONTEND_URL
-//       }/home?token=${token}&user=${encodeURIComponent(JSON.stringify(user))}`
-//     );
