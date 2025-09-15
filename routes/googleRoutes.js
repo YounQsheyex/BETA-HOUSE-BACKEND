@@ -45,7 +45,7 @@ router.get(
       { expiresIn: "1h" }
     );
     // Redirect to frontend after successful login
-    res.redirect(`${process.env.FRONTEND_URL}/home?token:${token}`);
+    res.redirect(`${process.env.FRONTEND_URL}/home`);
   }
 );
 module.exports = router;
