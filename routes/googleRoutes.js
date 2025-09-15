@@ -39,13 +39,14 @@ router.get(
   }),
 
   (req, res) => {
+    const user = req.params;
     const token = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
     // Redirect to frontend after successful login
-    res.redirect(`${process.env.FRONTEND_URL}/home`);
+    res.redirect(`${process.env.FRONTEND_URL}/home?token=${token}`);
   }
 );
 module.exports = router;
