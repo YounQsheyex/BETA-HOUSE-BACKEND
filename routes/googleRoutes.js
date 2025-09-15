@@ -49,7 +49,15 @@ router.get(
       { expiresIn: "1h" }
     );
     // Redirect to frontend after successful login
-    res.status(200).json({ success: true, message: "Successful" });
+    res.status(200).json({
+      success: true,
+      message: "Successful",
+      user: {
+        token,
+        userId: user._id,
+        email: user.email,
+      },
+    });
   }
 );
 module.exports = router;
